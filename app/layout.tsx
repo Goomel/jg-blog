@@ -3,6 +3,9 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import cn from 'classnames';
 
+import Navbar from '@/app/components/navbar/Navbar';
+import Footer from '@/app/components/Footer';
+
 const inter = Inter({ subsets: ['latin-ext'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin-ext'],
@@ -21,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn(spaceGrotesk.variable, inter.variable)}>
-      <body className="font-sans">{children}</body>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
