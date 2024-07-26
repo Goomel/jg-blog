@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Archivo } from 'next/font/google';
 import './globals.css';
 import cn from 'classnames';
 
@@ -7,7 +7,7 @@ import Navbar from '@/app/components/navbar/Navbar';
 import Footer from '@/app/components/Footer';
 
 const inter = Inter({ subsets: ['latin-ext'], variable: '--font-inter' });
-const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Archivo({
   subsets: ['latin-ext'],
   variable: '--font-space-grotesk',
 });

@@ -20,9 +20,9 @@ const NavDesktop = ({ menu }: { menu: Menu }) => {
 
       <a
         href="#"
-        className="block bg-lemon-500 lg:py-4 lg:px-6 hover:bg-lemon-400 font-medium transition-colors duration-200"
+        className="block bg-lemon-500 lg:py-4 lg:px-6 hover:bg-lemon-400 font-medium transition-colors duration-200 rounded"
       >
-        Skontaktuj się!
+        Kontakt
       </a>
     </div>
   );

@@ -15,15 +15,16 @@ const menu: Menu = [
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className="container py-4 lg:py-5 border-b border-black-500">
-        <div className="flex items-center justify-between lg:justify-normal lg:gap-10">
-          <a href="./" className="text-black-500 text-3xl font-bold font-heading">
-            <span className="uppercase">JG</span>.dev
-          </a>
-
-          <NavDesktop menu={menu} />
-          <NavMobile />
+    <nav className="">
+      <div className="container ">
+        <div className="border-b border-gray-400 py-4 lg:py-5">
+          <div className="flex items-center justify-between lg:justify-normal lg:gap-10">
+            <a href="./" className="text-black-500 text-3xl font-bold font-heading">
+              <span className="uppercase">JG</span>.dev
+            </a>
+            <NavDesktop menu={menu} />
+            <NavMobile />
+          </div>
         </div>
       </div>
     </nav>
