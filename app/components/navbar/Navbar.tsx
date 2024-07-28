@@ -23,7 +23,7 @@ const Navbar = () => {
               <span className="uppercase">JG</span>.dev
             </a>
             <NavDesktop menu={menu} />
-            <NavMobile />
+            <NavMobile menu={menu} />
           </div>
         </div>
       </div>

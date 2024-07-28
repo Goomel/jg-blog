@@ -6,7 +6,7 @@ export default function Home() {
     <main className="container">
       <section className="lg:py-14">
         <div className="lg:w-3/5 lg:space-y-8">
-          <p className="lg:text-5xl font-heading">
+          <p className="lg:text-5xl font-heading font-medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque imperdiet arcu
             ut convallis.
           </p>
@@ -21,7 +21,7 @@ export default function Home() {
       </section>
       <div className="border-t border-gray-400"></div>
       <section>
-        <p className="lg:text-5xl w-fit font-heading lg:mt-14 before:content-[''] before:block before:w-3/4 before:h-full before:absolute relative before:top-0 before:-right-4 before:translate-y-1/4 before:bg-lemon-500 before:-z-10">
+        <p className="lg:text-5xl w-fit font-heading lg:mt-14 before:content-[''] before:block before:w-3/4 before:h-full before:absolute relative before:top-0 before:-right-4 before:translate-y-[20%] before:bg-lemon-500 before:-z-10 font-medium">
           Ostatnie wpisy
         </p>
 
