@@ -4,7 +4,7 @@
 
 :root {
   /* Hamburger values */
-  --hamburger-line-height: 1.5px;
+  --hamburger-line-height: 2px;
   --gap-between-lines: 6px;
   --hamburger-translate: calc(
     calc((var(--gap-between-lines) / 2) + (var(--hamburger-line-height) / 2))
