@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className={cn(spaceGrotesk.variable, inter.variable)}>
       <body>
         <Navbar />
-        {children}
+        <div className="container">{children}</div>
         <Footer />
       </body>
     </html>
