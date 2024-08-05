@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import coffePhoto from '@/public/images/coffee.jpg';
+import coffePhoto from '@/public/images/test/coffee.jpg';
 import CategoryChip from './components/blog/CategoryChip';
 
 export default function Home() {

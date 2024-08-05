@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { PostData } from '@/app/lib/types';
+import { PostData, PostMetadata } from '@/app/lib/types';
 
-export const pathToPosts = path.join(process.cwd(), '/app/content');
+export const pathToPosts = path.join(process.cwd(), '/content');
 
 const getMDXFile = (filename: string) => {
   const MDXFilePath = path.join(pathToPosts, `${filename}.mdx`);
@@ -17,11 +17,9 @@ const readMDXFile = (pathToFile: string) => {
 export const getPostData = (slug: string): PostData | null => {
   const MDXFile = getMDXFile(slug);
   if (!MDXFile) return null;
-  else {
-    const source = readMDXFile(MDXFile);
-    const { content, data } = matter(source);
-    return { metadata: data, content };
-  }
+  const source = readMDXFile(MDXFile);
+  const { content, data } = matter(source);
+  return { metadata: data as PostMetadata, content };
 };
 
 // const getAllMDXFileNames = () => {
