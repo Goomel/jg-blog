@@ -1,8 +1,9 @@
-import Image from 'next/image';
-import coffePhoto from '@/public/images/test/coffee.jpg';
-import CategoryChip from './components/blog/CategoryChip';
+import RecentPosts from './components/blog/RecentPosts';
+import { getAllBlogPosts } from './lib/mdxUtils';
 
 export default function Home() {
+  const allPosts = getAllBlogPosts();
+
   return (
     <main className="container">
       <section className="py-10 lg:py-14">
@@ -22,47 +23,11 @@ export default function Home() {
       </section>
       <div className="border-t border-gray-400"></div>
       <section>
-        <p className="text-3xl sm:text-4xl lg:text-5xl w-fit font-heading mt-10 lg:mt-14 before:content-[''] before:block before:w-3/4 before:h-full before:absolute relative before:top-0 before:-right-4 before:translate-y-[20%] before:bg-lemon-500 before:-z-10 font-medium">
+        <p className="text-3xl sm:text-4xl lg:text-5xl w-fit font-heading before:content-[''] before:block before:w-3/4 before:h-full before:absolute relative before:top-0 before:-right-4 before:translate-y-[20%] before:bg-lemon-500 before:-z-10 font-medium my-8 sm:my-10 lg:my-14">
           Ostatnie wpisy
         </p>
-
         {/* first example post link */}
-        <div className="mt-8 sm:mt-10 lg:mt-14">
-          <div className="w-full">
-            <div className="flex lg:flex-row flex-col lg:gap-16 gap-6">
-              <div className="lg:basis-1/2">
-                <div className="w-full h-full">
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      className="object-cover"
-                      src={coffePhoto}
-                      fill
-                      alt="Picture of the author"
-                    ></Image>
-                  </div>
-                </div>
-              </div>
-              <div className="lg:basis-1/2 lg:py-4 xl:py-8">
-                <div className="lg:w-[90%] space-y-4 xl:space-y-6">
-                  <div className="flex items-center gap-4">
-                    <CategoryChip categoryName="Inne" />
-                    <p className="text-base lg:text-lg font-heading text-black-100">Lip 26, 2024</p>
-                  </div>
-                  <p className="text-2xl xl:text-4xl font-heading">
-                    Debitis velit iure sunt doloribus necessitatibus qui fuga commodi ullam
-                    voluptas.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis velit iure
-                    sunt doloribus necessitatibus qui fuga commodi ullam voluptas, porro soluta
-                    alias provident numquam, sit animi quia repellat dignissimos minus consequuntur
-                    eveniet neque! Reprehenderit, placeat!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <RecentPosts posts={allPosts} />
       </section>
     </main>
   );

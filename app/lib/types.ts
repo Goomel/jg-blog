@@ -26,5 +26,6 @@ export type PostMetadata = {
 
 export type PostData = {
   metadata: PostMetadata;
+  slug: string;
   content: string;
 };
