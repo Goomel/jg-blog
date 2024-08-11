@@ -15,17 +15,13 @@ export type HamburgerProps = {
   onClick: () => void;
 };
 
-export type PostMetadata = {
+export type Post = {
   title: string;
   publishedAt: string;
   excerpt: string;
   category: string;
   thumbnail: string;
-  description?: string;
-};
-
-export type PostData = {
-  metadata: PostMetadata;
+  description: string;
   slug: string;
   content: string;
 };

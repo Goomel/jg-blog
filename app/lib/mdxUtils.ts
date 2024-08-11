@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { PostData, PostMetadata } from '@/app/lib/types';
+import { Post } from '@/app/lib/types';
 
 export const pathToPosts = path.join(process.cwd(), '/content/posts');
 
@@ -14,12 +14,16 @@ const readMDXFile = (pathToFile: string) => {
   return fs.readFileSync(pathToFile, 'utf-8');
 };
 
-export const getPostData = (slug: string): PostData => {
+export const getPostData = (slug: string): Post => {
   const MDXFile = getMDXFile(slug);
   if (!MDXFile) throw new Error(`MDX file with slug ${slug} doesn't exist`);
   const source = readMDXFile(MDXFile);
   const { content, data } = matter(source);
-  return { metadata: data as PostMetadata, slug, content };
+  return {
+    ...(data as Omit<Post, 'slug' | 'content'>),
+    slug,
+    content,
+  };
 };
 
 const getAllMDXFileNames = () => {

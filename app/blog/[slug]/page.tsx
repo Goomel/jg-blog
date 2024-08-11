@@ -10,13 +10,14 @@ interface Params {
 
 export async function generateMetadata({ params }: Params) {
   const post = getPostData(params.slug);
+  const { title, description } = post;
   if (!post) {
     return {
       title: 'Page not found',
     };
   }
 
-  return post.metadata;
+  return { title, description };
 }
 
 export default async function BlogPostPage({ params }: Params) {
@@ -24,12 +25,12 @@ export default async function BlogPostPage({ params }: Params) {
   if (!post) {
     return <div>Page not found</div>;
   }
-  const { metadata, content } = post;
+  const { title, publishedAt, excerpt, category, thumbnail, content } = post;
   return (
     <div className="container">
       <div>
-        <h1>{metadata.title}</h1>
-        <Image src={metadata.thumbnail} alt="" width={300} height={200} />
+        <h1>{title}</h1>
+        <Image src={thumbnail} alt="" width={300} height={200} />
       </div>
       <article>
         <MDXRemote source={content} />;

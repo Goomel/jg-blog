@@ -8,7 +8,7 @@ export default function Home() {
     <main className="container">
       <section className="py-10 lg:py-14">
         <div className="xl:w-3/4 lg:w-4/5 space-y-6 lg:space-y-8">
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium">
+          <p className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque imperdiet arcu
             ut convallis.
           </p>
