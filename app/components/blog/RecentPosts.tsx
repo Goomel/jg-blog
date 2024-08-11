@@ -12,7 +12,7 @@ const RecentPosts = ({ posts }: { posts: PostData[] }) => {
 
   if (posts.length < 5) {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8">
         {recentPosts
           .slice(0, 2)
           .map((post: PostData) =>

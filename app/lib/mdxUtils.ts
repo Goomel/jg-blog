@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { PostData, PostMetadata } from '@/app/lib/types';
 
-export const pathToPosts = path.join(process.cwd(), '/content');
+export const pathToPosts = path.join(process.cwd(), '/content/posts');
 
 const getMDXFile = (filename: string) => {
   const MDXFilePath = path.join(pathToPosts, `${filename}.mdx`);
