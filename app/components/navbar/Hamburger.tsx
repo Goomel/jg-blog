@@ -1,9 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 import { Menu } from '@/app/lib/types';
-import { HamburgerProps, HamburgerVariant } from '@/app/lib/types';
+import { HamburgerVariant } from '@/app/lib/types';
 
-const Hamburger: React.FC<HamburgerProps> = ({ variant, onClick }) => {
+export type HamburgerProps = {
+  variant: HamburgerVariant;
+  onClick: () => void;
+};
+
+const Hamburger = ({ variant, onClick }: HamburgerProps) => {
   const currentVariantClassName = cn({
     close: variant === HamburgerVariant.Close,
     open: variant === HamburgerVariant.Open,

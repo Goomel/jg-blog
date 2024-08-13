@@ -10,11 +10,6 @@ export enum HamburgerVariant {
   Close = 'close',
 }
 
-export type HamburgerProps = {
-  variant: HamburgerVariant;
-  onClick: () => void;
-};
-
 export type Post = {
   title: string;
   publishedAt: string;

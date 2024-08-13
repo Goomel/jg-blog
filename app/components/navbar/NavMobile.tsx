@@ -2,10 +2,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useClickAway, useMedia } from 'react-use';
-import cn from 'classnames';
-
 import { Menu, MenuItem, HamburgerVariant } from '@/app/lib/types';
 import Hamburger from './Hamburger';
 

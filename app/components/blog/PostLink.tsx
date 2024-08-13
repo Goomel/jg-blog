@@ -11,7 +11,7 @@ const PostItem = ({
 }) => {
   return (
     <Link href={`/blog/${slug}`} className="w-full">
-      <div className="relative w-full aspect-[3/2] rounded-md lg:mb-6">
+      <div className="relative w-full aspect-[3/2] rounded-md mb-4 lg:mb-6">
         <Image src={thumbnail} alt="" fill className="object-cover" />
       </div>
       <div className="flex flex-col gap-4">
