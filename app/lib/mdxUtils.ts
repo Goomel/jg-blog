@@ -31,10 +31,26 @@ const getAllMDXFileNames = () => {
   return files.map((file) => path.parse(file).name);
 };
 
+const sortPostsByDate = (posts: Post[]) => {
+  return posts.sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
+};
+
 export const getAllBlogPosts = () => {
   const postNames = getAllMDXFileNames();
-  const blogPosts = postNames.map((postName) => ({
+  const posts = postNames.map((postName) => ({
     ...getPostData(postName),
   }));
-  return blogPosts;
+  return posts;
+};
+
+export const getSortedBlogPosts = () => {
+  return sortPostsByDate(getAllBlogPosts());
+};
+
+export const getLatestBlogPosts = () => {
+  const sortedPosts = getSortedBlogPosts();
+  const recentPosts = sortedPosts.slice(0, 5);
+  return recentPosts;
 };

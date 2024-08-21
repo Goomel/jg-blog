@@ -11,15 +11,15 @@ const PostItem = ({
 }) => {
   return (
     <Link href={`/blog/${slug}`} className="w-full">
-      <div className="relative w-full aspect-[3/2] rounded-md mb-4 lg:mb-6">
+      <div className="relative w-full aspect-[3/2] rounded-md overflow-hidden mb-4 lg:mb-6">
         <Image src={thumbnail} alt="" fill className="object-cover" />
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 ">
         <div className="flex items-center gap-3 lg:gap-4">
           <CategoryChip categoryName={category} />
           <span>{publishedAt}</span>
         </div>
-        <p className="font-heading text-3xl lg:text-4xl">{title}</p>
+        <p className="font-heading font-medium text-xl sm:text-2xl lg:text-3xl">{title}</p>
         <p>{excerpt}</p>
       </div>
     </Link>

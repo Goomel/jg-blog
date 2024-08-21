@@ -1,9 +1,6 @@
 import RecentPosts from './components/blog/RecentPosts';
-import { getAllBlogPosts } from './lib/mdxUtils';
 
 export default function Home() {
-  const allPosts = getAllBlogPosts();
-
   return (
     <main className="lg:px-6">
       <section className="py-10 lg:py-14">
@@ -27,7 +24,7 @@ export default function Home() {
           Ostatnie wpisy
         </p>
         {/* first example post link */}
-        <RecentPosts posts={allPosts} />
+        <RecentPosts />
       </section>
     </main>
   );
