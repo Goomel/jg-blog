@@ -54,3 +54,10 @@ export const getLatestBlogPosts = () => {
   const recentPosts = sortedPosts.slice(0, 5);
   return recentPosts;
 };
+
+export const getPostsCategories = () => {
+  const posts = getAllBlogPosts();
+  // create Array of unique categories (Set is used to remove duplicates)
+  const categories = Array.from(new Set(posts.map((post) => post.category)));
+  return categories;
+};

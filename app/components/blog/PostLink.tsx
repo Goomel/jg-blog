@@ -13,7 +13,7 @@ const PostItem = ({
   return (
     <Link href={`/blog/${slug}`} className="group w-full">
       <div className="relative aspect-[3/2] w-full overflow-hidden rounded-t-md">
-        <Image src={thumbnail} alt="" fill className="object-cover" />
+        <Image src={thumbnail} alt="" fill className="object-cover" loading="lazy" />
       </div>
       <div className="relative flex flex-col gap-4 px-3 py-4 lg:px-4 lg:py-6">
         <div className="flex items-center gap-3 lg:gap-4">
