@@ -31,13 +31,13 @@ const getAllMDXFileNames = () => {
   return files.map((file) => path.parse(file).name);
 };
 
-const sortPostsByDate = (posts: Post[]) => {
+export const sortPostsByDate = (posts: Post[]) => {
   return posts.sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 };
 
-export const getAllBlogPosts = () => {
+export const getAllBlogPosts = (): Post[] => {
   const postNames = getAllMDXFileNames();
   const posts = postNames.map((postName) => ({
     ...getPostData(postName),
@@ -45,12 +45,8 @@ export const getAllBlogPosts = () => {
   return posts;
 };
 
-export const getSortedBlogPosts = () => {
-  return sortPostsByDate(getAllBlogPosts());
-};
-
-export const getLatestBlogPosts = () => {
-  const sortedPosts = getSortedBlogPosts();
+export const getLatestBlogPosts = (): Post[] => {
+  const sortedPosts = sortPostsByDate(getAllBlogPosts());
   const recentPosts = sortedPosts.slice(0, 5);
   return recentPosts;
 };
@@ -60,4 +56,9 @@ export const getPostsCategories = () => {
   // create Array of unique categories (Set is used to remove duplicates)
   const categories = Array.from(new Set(posts.map((post) => post.category)));
   return categories;
+};
+
+export const getPostsByCategory = (category: string): Post[] => {
+  const posts = getAllBlogPosts();
+  return posts.filter((post) => post.category === category);
 };
