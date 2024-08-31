@@ -7,6 +7,7 @@ const PostCategories = ({ currentCategory }: { currentCategory?: string }) => {
 
   return (
     <div className="flex gap-4">
+      <Link href="/blog">Wszystkie</Link>
       {categories.map((category) => (
         <Link
           href={`/kategorie/${slugify(category)}`}
