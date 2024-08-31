@@ -3,6 +3,17 @@ import path from 'path';
 import matter from 'gray-matter';
 import { Post } from '@/app/lib/types';
 
+export const slugify = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
+};
+
 export const pathToPosts = path.join(process.cwd(), '/content/posts');
 
 const getMDXFile = (filename: string) => {
@@ -21,7 +32,7 @@ export const getPostData = (slug: string): Post => {
   const { content, data } = matter(source);
   return {
     ...(data as Omit<Post, 'slug' | 'content'>),
-    slug,
+    slug: slugify(slug),
     content,
   };
 };
@@ -61,4 +72,9 @@ export const getPostsCategories = () => {
 export const getPostsByCategory = (category: string): Post[] => {
   const posts = getAllBlogPosts();
   return posts.filter((post) => post.category === category);
+};
+
+export const getPostsByCategorySlug = (categorySlug: string): Post[] => {
+  const posts = getAllBlogPosts();
+  return posts.filter((post) => slugify(post.category) === categorySlug);
 };

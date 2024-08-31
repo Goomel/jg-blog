@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import cn from 'classnames';
-import { getPostsCategories } from '@/app/lib/mdxUtils';
+import { getPostsCategories, slugify } from '@/app/lib/mdxUtils';
 
 const PostCategories = ({ currentCategory }: { currentCategory?: string }) => {
   const categories = getPostsCategories();
@@ -9,7 +9,7 @@ const PostCategories = ({ currentCategory }: { currentCategory?: string }) => {
     <div className="flex gap-4">
       {categories.map((category) => (
         <Link
-          href={`/kategorie/${category}`}
+          href={`/kategorie/${slugify(category)}`}
           className={cn(category === currentCategory && 'bg-lemon-500')}
           key={category}
         >
