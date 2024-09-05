@@ -1,32 +1,21 @@
 'use client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import FormInput from './FormInput';
+import { FormData, contactFormSchema } from '@/app/lib/types';
+import { zodResolver } from '@hookform/resolvers/zod';
+import FormTextarea from './FormTextarea';
+import ButtonPrimary from '../buttons/ButtonPrimary';
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormData>({
+    resolver: zodResolver(contactFormSchema),
+  });
 
-  const registerOptions = {
-    name: {
-      required: 'Imię i nazwisko jest wymagane',
-      minLength: {
-        value: 3,
-        message: 'Minimalna wartość to 3',
-      },
-    },
-    email: { required: 'Email jest wymagany' },
-    message: {
-      required: 'Wiadomość jest wymagana',
-    },
-  };
-
-  const handleErrors = (errors: any) => {
-    console.log('Errors');
-    console.log(errors);
-  };
   const handleSendEmail = (data: any) => {
     console.log('Data');
     console.log(data);
@@ -36,35 +25,32 @@ const ContactForm = () => {
     <div className="">
       <form
         className="flex flex-col gap-4 lg:gap-6"
-        onSubmit={handleSubmit(handleSendEmail, handleErrors)}
+        onSubmit={handleSubmit(handleSendEmail)}
+        noValidate
       >
-        <input
-          {...register('name', registerOptions.name)}
-          type="text"
+        <FormInput
           name="name"
+          register={register}
+          type="text"
+          error={errors.name}
           placeholder="Imię i nazwisko"
         />
-        {errors?.name && typeof errors.name.message === 'string' ? (
-          <p>{errors.name.message}</p>
-        ) : null}
-        <input
-          {...register('email', registerOptions.email)}
-          type="text"
+        <FormInput
           name="email"
+          register={register}
+          type="email"
+          error={errors.email}
           placeholder="Email"
         />
-        {errors?.email && typeof errors.email.message === 'string' ? (
-          <p>{errors.email.message}</p>
-        ) : null}
-        <textarea
-          {...register('message', registerOptions.message)}
+        <FormTextarea
+          register={register}
           name="message"
           placeholder="Wiadomość"
-        ></textarea>
-        {errors?.message && typeof errors.message.message === 'string' ? (
-          <p>{errors.message.message}</p>
-        ) : null}
-        <button type="submit">Wyslij</button>
+          error={errors.message}
+        />
+        <ButtonPrimary type="submit" as="button">
+          Wyślij
+        </ButtonPrimary>
       </form>
     </div>
   );
