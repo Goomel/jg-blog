@@ -1,11 +1,12 @@
 import RecentPosts from './components/blog/RecentPosts';
+import ContactForm from './components/form/ContactForm';
 
 export default function Home() {
   return (
     <main className="lg:px-6">
       <section className="py-10 lg:py-14">
-        <div className="xl:w-3/4 lg:w-4/5 space-y-6 lg:space-y-8">
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold">
+        <div className="space-y-6 lg:w-4/5 lg:space-y-8 xl:w-3/4">
+          <p className="font-heading text-3xl font-semibold sm:text-4xl lg:text-5xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque imperdiet arcu
             ut convallis.
           </p>
@@ -20,11 +21,13 @@ export default function Home() {
       </section>
       <div className="border-t border-gray-400"></div>
       <section>
-        <p className="text-3xl sm:text-4xl lg:text-5xl w-fit font-heading before:content-[''] before:block before:w-3/4 before:h-full before:absolute relative before:top-0 before:-right-4 before:translate-y-[20%] before:bg-lemon-500 before:-z-10 font-medium my-8 sm:my-10 lg:my-14">
+        <p className="relative my-8 w-fit font-heading text-3xl font-medium before:absolute before:-right-4 before:top-0 before:-z-10 before:block before:h-full before:w-3/4 before:translate-y-[20%] before:bg-lemon-500 before:content-[''] sm:my-10 sm:text-4xl lg:my-14 lg:text-5xl">
           Ostatnie wpisy
         </p>
-        {/* first example post link */}
         <RecentPosts />
+      </section>
+      <section>
+        <ContactForm />
       </section>
     </main>
   );
