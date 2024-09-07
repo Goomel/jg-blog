@@ -1,16 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { Menu, MenuItem } from '@/app/lib/types';
+import ButtonPrimary from '../buttons/ButtonPrimary';
 
 const NavDesktop = ({ menu }: { menu: Menu }) => {
   return (
-    <div className="items-center justify-between w-full lg:flex hidden">
-      <ul className="flex items-center lg:gap-8 font-medium">
+    <div className="hidden w-full items-center justify-between lg:flex">
+      <ul className="flex items-center font-medium lg:gap-8">
         {menu.map((menuItem: MenuItem) => (
-          <li key={menuItem.title} className="inline-flex group">
+          <li key={menuItem.title} className="group inline-flex">
             <Link
               href={menuItem.href}
-              className="inline-block relative before:content-[''] before:scale-x-0 group-hover:before:scale-x-100 before:w-3/4 before:bg-black-500 before:h-0.5 before:absolute before:-bottom-2 before:right-0 before:transition-transform before:duration-200 before:origin-right"
+              className="text-shadow-sm relative inline-block text-gray-100 before:absolute before:-bottom-2 before:right-0 before:h-0.5 before:w-3/4 before:origin-right before:scale-x-0 before:bg-lemon-500 before:transition-transform before:duration-200 before:content-[''] group-hover:before:scale-x-100"
             >
               {menuItem.title}
             </Link>
@@ -18,12 +19,9 @@ const NavDesktop = ({ menu }: { menu: Menu }) => {
         ))}
       </ul>
 
-      <Link
-        href="#kontakt"
-        className="bg-lemon-500 px-5 py-3 font-semibold rounded-full hover:bg-lemon-400 transition-colors duration-200"
-      >
+      <ButtonPrimary as="link" href="#kontakt">
         Kontakt
-      </Link>
+      </ButtonPrimary>
     </div>
   );
 };

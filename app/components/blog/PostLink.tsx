@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import CategoryChip from './CategoryChip';
-import ArrowRight from '@/public/icons/arrow-right.svg';
 import { Post } from '@/app/lib/types';
 
 const PostItem = ({
@@ -15,7 +14,7 @@ const PostItem = ({
       <div className="relative aspect-[3/2] w-full overflow-hidden rounded-t-md">
         <Image src={thumbnail} alt="" fill className="object-cover" loading="lazy" />
       </div>
-      <div className="relative flex flex-col gap-4 px-3 py-4 lg:px-4 lg:py-6">
+      <div className="relative flex flex-col gap-4 rounded-b-md border border-black-300 border-opacity-0 px-2 py-3 transition duration-200 group-hover:border-opacity-100 group-hover:bg-black-400 lg:px-3 lg:py-5">
         <div className="flex items-center gap-3 lg:gap-4">
           <CategoryChip categoryName={category} />
           <span>{publishedAt}</span>

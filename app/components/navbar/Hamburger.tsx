@@ -1,6 +1,5 @@
 import React from 'react';
 import cn from 'classnames';
-import { Menu } from '@/app/lib/types';
 import { HamburgerVariant } from '@/app/lib/types';
 
 export type HamburgerProps = {
@@ -18,29 +17,15 @@ const Hamburger = ({ variant, onClick }: HamburgerProps) => {
       onClick={onClick}
       className={cn(
         currentVariantClassName,
-        'flex justify-center items-center size-8 bg-[transparent] border-none group lg:[&.open]:hidden',
+        'group flex size-8 items-center justify-center border-none bg-[transparent] lg:[&.open]:hidden',
       )}
     >
-      <div className="flex flex-col items-center justify-center gap-[var(--gap-between-lines)] cursor-pointer">
-        <div className="bg-black-500 w-6 h-[var(--hamburger-line-height)] group-[&.close]:translate-y-[var(--hamburger-translate)] group-[&.close]:rotate-45"></div>
-        <div className="bg-black-500 w-6 h-[var(--hamburger-line-height)] group-[&.close]:-translate-y-[var(--hamburger-translate)] group-[&.close]:-rotate-45"></div>
+      <div className="flex cursor-pointer flex-col items-center justify-center gap-[var(--gap-between-lines)]">
+        <div className="h-[var(--hamburger-line-height)] w-6 bg-gray-100 group-[&.close]:translate-y-[var(--hamburger-translate)] group-[&.close]:rotate-45"></div>
+        <div className="h-[var(--hamburger-line-height)] w-6 bg-gray-100 group-[&.close]:-translate-y-[var(--hamburger-translate)] group-[&.close]:-rotate-45"></div>
       </div>
     </button>
   );
 };
-const menu: Menu = [
-  {
-    title: 'Home',
-    href: '#',
-  },
-  {
-    title: 'Explore',
-    href: '#',
-  },
-  {
-    title: 'About',
-    href: '#',
-  },
-];
 
 export default Hamburger;

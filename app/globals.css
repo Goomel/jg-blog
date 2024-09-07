@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .text-outline-white {
+    -webkit-text-stroke: 1px #fff;
+  }
+}
+
 :root {
   /* Hamburger values */
   --hamburger-line-height: 2px;
@@ -11,12 +17,14 @@
   );
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
-  @apply text-black-500 font-sans;
+  @apply bg-black-500 font-sans text-gray-100;
 }
 
 .overlay {
-  @apply absolute top-0 left-0 w-screen h-screen bg-black-500/30;
+  @apply absolute left-0 top-0 h-screen w-screen bg-black-500/30;
 }
-
-/* @layer utilities {} */

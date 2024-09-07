@@ -12,7 +12,6 @@ export enum HamburgerVariant {
   Open = 'open',
   Close = 'close',
 }
-
 export type Post = {
   title: string;
   publishedAt: string;

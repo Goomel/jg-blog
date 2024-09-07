@@ -3,8 +3,8 @@ import React from 'react';
 const CategoryChip = ({ categoryName }: { categoryName: string }) => {
   return (
     <div>
-      <div className="py-1 px-2 lg:px-3 rounded bg-black-500">
-        <p className="text-sm lg:text-base text-gray-100">{categoryName}</p>
+      <div className="rounded bg-black-200 px-2 py-1 lg:px-3">
+        <span className="text-gray-100">{categoryName}</span>
       </div>
     </div>
   );

@@ -19,8 +19,10 @@ const Navbar = () => {
     <nav className="container">
       <div className="border-b border-gray-400 py-4 lg:py-5">
         <div className="flex items-center justify-between lg:justify-normal lg:gap-10">
-          <Link href="/" className="text-black-500 text-3xl font-bold font-heading">
-            JG.dev
+          <Link href="/" className="font-heading text-3xl font-extrabold text-gray-100 sm:text-4xl">
+            <span className="">jg</span>
+            <span className="text-lemon-500">.</span>
+            <span className="text-outline-white text-2xl text-black-500/0 sm:text-3xl">dev</span>
           </Link>
           <NavDesktop menu={menu} />
           <NavMobile menu={menu} />

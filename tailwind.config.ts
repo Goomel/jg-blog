@@ -17,9 +17,15 @@ const config: Config = {
     },
     container: {
       center: true,
+      screens: {
+        xs: '100%',
+        sm: '100%',
+        md: '100%',
+        lg: '1360px',
+      },
       padding: {
         DEFAULT: '1rem',
-        lg: '2rem',
+        lg: '2.5rem',
       },
     },
     colors: {
@@ -48,9 +54,8 @@ const config: Config = {
     },
     fontFamily: {
       sans: ['var(--font-inter)', 'sans-serif'],
-      heading: ['var(--font-space-grotesk)'],
+      heading: ['var(--font-archivo)', 'sans-serif'],
     },
   },
-  plugins: [],
 };
 export default config;

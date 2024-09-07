@@ -6,7 +6,7 @@ export default function Home() {
     <main className="lg:px-6">
       <section className="py-10 lg:py-14">
         <div className="space-y-6 lg:w-4/5 lg:space-y-8 xl:w-3/4">
-          <p className="font-heading text-3xl font-semibold sm:text-4xl lg:text-5xl">
+          <p className="font-heading text-2xl font-medium sm:text-3xl lg:text-4xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque imperdiet arcu
             ut convallis.
           </p>
@@ -21,12 +21,18 @@ export default function Home() {
       </section>
       <div className="border-t border-gray-400"></div>
       <section>
-        <p className="relative my-8 w-fit font-heading text-3xl font-medium before:absolute before:-right-4 before:top-0 before:-z-10 before:block before:h-full before:w-3/4 before:translate-y-[20%] before:bg-lemon-500 before:content-[''] sm:my-10 sm:text-4xl lg:my-14 lg:text-5xl">
+        <h2 className="my-8 text-3xl font-medium sm:my-10 sm:text-4xl lg:my-14 lg:text-5xl">
           Ostatnie wpisy
-        </p>
+        </h2>
         <RecentPosts />
       </section>
-      <section>
+      <section id="kontakt" className="py-10 lg:pt-16">
+        <div className="space-y-2 text-center lg:space-y-4">
+          <p className="text-[15px] text-lemon-500 lg:text-base">Masz pytania?</p>
+          <h2 className="my-8 text-3xl font-medium sm:my-10 sm:text-4xl lg:my-14 lg:text-5xl">
+            Napisz do mnie!
+          </h2>
+        </div>
         <ContactForm />
       </section>
     </main>

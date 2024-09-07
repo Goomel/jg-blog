@@ -7,9 +7,9 @@ import Navbar from '@/app/components/navbar/Navbar';
 import Footer from '@/app/components/Footer';
 
 const inter = Inter({ subsets: ['latin-ext'], variable: '--font-inter' });
-const spaceGrotesk = Archivo({
+const archivo = Archivo({
   subsets: ['latin-ext'],
-  variable: '--font-space-grotesk',
+  variable: '--font-archivo',
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(spaceGrotesk.variable, inter.variable)}>
+    <html lang="en" className={cn(archivo.variable, inter.variable)}>
       <body>
         <Navbar />
         <div className="container">{children}</div>

@@ -42,10 +42,10 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
-            className="w-full xs:w-[clamp(400px,50%,600px)] h-screen absolute top-0 right-0 bg-gray-100 pt-4 pl-8"
+            className="absolute right-0 top-0 h-screen w-full bg-black-400 pl-8 pt-4 xs:w-[clamp(400px,50%,600px)]"
           >
             <Hamburger variant={HamburgerVariant.Close} onClick={toggleMenuOpen} />
-            <ul className="pt-12 flex flex-col gap-6 ">
+            <ul className="flex flex-col gap-6 pt-12">
               {menu.map((menuItem: MenuItem, index) => (
                 <motion.li
                   initial={{ scale: 0, opacity: 0 }}
@@ -61,7 +61,7 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
                 >
                   <Link
                     href={menuItem.href}
-                    className="text-black-500 font-medium text-base xs:text-lg"
+                    className="text-base font-medium text-gray-100 xs:text-lg"
                   >
                     {menuItem.title}
                   </Link>
