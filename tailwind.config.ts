@@ -51,6 +51,14 @@ const config: Config = {
         500: '#E4FF5A',
         600: '#DBFF22',
       },
+      red: {
+        100: '#F3B3B3',
+        200: '#ED8F8F',
+        300: '#E76C6C',
+        400: '#E24949',
+        500: '#DC2626',
+        600: '#AE1C1C',
+      },
     },
     fontFamily: {
       sans: ['var(--font-inter)', 'sans-serif'],

@@ -22,9 +22,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="mx-auto my-8 max-w-2xl lg:my-16">
+    <div className="mx-auto my-8 max-w-2xl lg:my-14">
       <form
-        className="flex flex-col justify-start gap-4 lg:gap-6"
+        className="flex flex-col justify-start gap-4 lg:gap-5"
         onSubmit={handleSubmit(handleSendEmail)}
         noValidate
       >
