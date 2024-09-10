@@ -17,12 +17,11 @@ const ContactForm = () => {
   });
 
   const handleSendEmail = (data: any) => {
-    console.log('Data');
     console.log(data);
   };
 
   return (
-    <div className="mx-auto my-8 max-w-2xl lg:my-14">
+    <div className="mx-auto max-w-2xl">
       <form
         className="flex flex-col justify-start gap-4 lg:gap-5"
         onSubmit={handleSubmit(handleSendEmail)}

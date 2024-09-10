@@ -18,13 +18,10 @@ const config: Config = {
     container: {
       center: true,
       screens: {
-        xs: '100%',
-        sm: '100%',
-        md: '100%',
         lg: '1360px',
       },
       padding: {
-        DEFAULT: '1rem',
+        DEFAULT: '1.5rem',
         lg: '2.5rem',
       },
     },

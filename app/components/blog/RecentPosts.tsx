@@ -37,7 +37,7 @@ const RecentPosts = () => {
   return (
     <div className="space-y-8">
       {renderPostGrid()}
-      <ButtonPrimary as="link" href="/blog" additionalClassNames="mr-0 ml-auto" hasArrow>
+      <ButtonPrimary as="link" href="/blog" additionalClassNames="mr-0 ml-auto" hasArrow={true}>
         Wszystkie wpisy
       </ButtonPrimary>
     </div>
