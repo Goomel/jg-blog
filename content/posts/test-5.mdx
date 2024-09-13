@@ -17,4 +17,9 @@ This is a list in markdown:
 - Two
 - Three
 
-Checkout my React component:
+```Javascript
+export const getPostsByCategorySlug = (categorySlug: string): Post[] => {
+  const posts = getAllBlogPosts();
+  return posts.filter((post) => slugify(post.category) === categorySlug);
+};
+```

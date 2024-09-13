@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Archivo } from 'next/font/google';
-import './globals.css';
+import '@/styles/globals.css';
 import cn from 'classnames';
 
 import Navbar from '@/app/components/navbar/Navbar';
