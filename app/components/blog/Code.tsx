@@ -1,31 +1,28 @@
 'use client';
 import React, { useEffect } from 'react';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-tsx';
-// import 'prismjs/themes/prism-tomorrow.css';
+import hljs from 'highlight.js/lib/core';
 
-const codeBlock = `
-import { categories, type Category } from '@/categories';
+import xml from 'highlight.js/lib/languages/xml';
+import css from 'highlight.js/lib/languages/css';
+import scss from 'highlight.js/lib/languages/scss';
+import typescript from 'highlight.js/lib/languages/typescript';
+import javascript from 'highlight.js/lib/languages/javascript';
+import 'highlight.js/styles/atom-one-dark.css';
 
-type foo = {
-  bar: string
-}
+hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('css', css);
+hljs.registerLanguage('scss', scss);
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('typescript', typescript);
 
-export default async function Category({
-  params,
-}: {
-  params: { category: Category };
-}) {
-  const { category } = params;
+const code = `
+import RecentPosts from './components/blog/RecentPosts';
+import ContactForm from './components/form/ContactForm';
+import PlussesPattern from '@/public/bg/plusses-pattern.svg';
 
-  // comment
-
+export default function Home() {
   return (
-    <main>
-      <h1>Category: {category}</h1>
+    <main className="lg:px-6">
     </main>
   );
 }
@@ -33,12 +30,13 @@ export default async function Category({
 
 const Code = () => {
   useEffect(() => {
-    Prism.highlightAll();
+    hljs.highlightAll();
   }, []);
+
   return (
     <div>
       <pre>
-        <code className={`language-tsx`}>{codeBlock}</code>
+        <code className={`language-ts`}>{code}</code>
       </pre>
     </div>
   );
