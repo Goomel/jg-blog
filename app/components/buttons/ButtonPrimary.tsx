@@ -1,4 +1,4 @@
-import React from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 import Link, { LinkProps } from 'next/link';
 import ArrowRight from '@/public/icons/arrow-right.svg';
@@ -8,7 +8,7 @@ type ButtonProps = {
   hasArrow?: boolean;
   additionalClassNames?: string;
 } & (
-  | (React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  | (ButtonHTMLAttributes<HTMLButtonElement> & {
       as: 'button';
     })
   | (LinkProps & {
