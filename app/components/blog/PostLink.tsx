@@ -15,9 +15,9 @@ const PostItem = ({
         <Image src={thumbnail} alt="" fill className="object-cover" loading="lazy" />
       </div>
       <div className="relative flex flex-col gap-4 rounded-b-md border border-black-300 border-opacity-0 px-2 py-3 transition duration-200 group-hover:border-opacity-100 group-hover:bg-black-400 lg:px-3 lg:py-5">
-        <div className="flex items-center gap-3 lg:gap-4">
+        <div className="flex flex-wrap items-center gap-3 lg:gap-4">
           <CategoryChip categoryName={category} />
-          <span>{publishedAt}</span>
+          <span className="text-nowrap">{publishedAt}</span>
         </div>
         <p className="font-heading text-xl font-medium sm:text-2xl lg:text-3xl">{title}</p>
         <p>{excerpt}</p>

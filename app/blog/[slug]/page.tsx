@@ -2,7 +2,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { getPostData } from '@/app/lib/mdxUtils';
 import Image from 'next/image';
-import Code from '@/app/components/blog/Code';
+import Code from '@/app/components/mdx/Code';
+import Heading from '@/app/components/mdx/Heading';
 
 interface Params {
   params: {
@@ -42,6 +43,18 @@ export default async function BlogPostPage({ params }: Params) {
     pre: (props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) => {
       return <Code {...props} />;
     },
+    h1: (props: DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => {
+      return <Heading headingLevel={1}>{props.children}</Heading>;
+    },
+    h2: (props: DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => {
+      return <Heading headingLevel={2}>{props.children}</Heading>;
+    },
+    h3: (props: DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => {
+      return <Heading headingLevel={3}>{props.children}</Heading>;
+    },
+    h4: (props: DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => {
+      return <Heading headingLevel={4}>{props.children}</Heading>;
+    },
   };
 
   if (!post) {
@@ -50,19 +63,28 @@ export default async function BlogPostPage({ params }: Params) {
 
   return (
     <div className="container">
-      <div>
-        <p>
-          {category} - {publishedAt}
-        </p>
-        <p>
-          {readingTime} {readingTimeMinutesMessage}
-        </p>
-        <h1>{title}</h1>
-        <Image src={thumbnail} alt="" width={300} height={200} />
+      <div className="mx-auto max-w-screen-xl">
+        <div className="text-center">
+          <div className="my-8 space-y-2 sm:text-center lg:my-14 lg:space-y-4">
+            <p className="text-[15px] text-lemon-500 lg:text-base">{category}</p>
+            <h2 className="text-4xl font-medium sm:text-5xl 2xl:text-6xl">{title}</h2>
+          </div>
+
+          {/* <p>
+            {category} - {publishedAt}
+          </p>
+          <p>
+            {readingTime} {readingTimeMinutesMessage}
+          </p> */}
+
+          <div className="relative mx-auto mb-8 aspect-video w-full max-w-4xl lg:mb-14">
+            <Image className="object-cover" src={thumbnail} fill alt="" />
+          </div>
+        </div>
+        <article className="mx-auto max-w-4xl">
+          <MDXRemote source={content} components={customMdxComponents} />
+        </article>
       </div>
-      <article>
-        <MDXRemote source={content} components={customMdxComponents} />;
-      </article>
     </div>
   );
 }

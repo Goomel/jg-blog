@@ -7,7 +7,7 @@ export default function Home() {
     <main className="lg:px-6">
       <section className="relative py-10 lg:py-14">
         <div className="space-y-6 lg:w-4/5 lg:space-y-8 xl:w-3/4">
-          <p className="font-heading text-2xl font-medium sm:text-3xl lg:text-4xl">
+          <p className="font-heading text-3xl font-medium sm:text-4xl 2xl:text-5xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque imperdiet arcu
             ut convallis.
           </p>
@@ -27,7 +27,7 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       <section>
-        <h2 className="my-8 text-3xl font-medium sm:my-10 sm:text-4xl lg:my-14 lg:text-5xl">
+        <h2 className="my-8 text-3xl font-medium sm:my-10 sm:text-4xl lg:my-14 2xl:text-5xl">
           Ostatnie wpisy
         </h2>
         <RecentPosts />
@@ -42,7 +42,7 @@ export default function Home() {
         </div>
         <div className="mb-8 space-y-2 sm:text-center lg:mb-14 lg:space-y-4">
           <p className="text-[15px] text-lemon-500 lg:text-base">Masz pytania?</p>
-          <h2 className="my-8 text-3xl font-medium sm:my-10 sm:text-4xl lg:my-14 lg:text-5xl">
+          <h2 className="mb-8 text-3xl font-medium sm:mb-10 sm:text-4xl lg:mb-14 2xl:text-5xl">
             Napisz do mnie!
           </h2>
         </div>
