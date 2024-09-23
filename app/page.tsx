@@ -33,7 +33,7 @@ export default function Home() {
         <RecentPosts />
       </section>
 
-      <section id="kontakt" className="relative py-14 lg:pt-16">
+      <section id="kontakt" className="relative pt-14 lg:pt-16">
         <div className="absolute left-8 top-5 z-[-1] hidden lg:block">
           <PlussesPattern />
         </div>

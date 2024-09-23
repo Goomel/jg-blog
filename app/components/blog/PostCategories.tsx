@@ -6,30 +6,32 @@ const PostCategories = ({ currentCategory }: { currentCategory?: string }) => {
   const categories = getPostsCategories();
 
   return (
-    <div className="mb-8 flex gap-4 lg:mb-10">
-      <Link
-        className={cn(
-          'rounded px-2 py-1 transition-colors duration-200 lg:px-3',
-          !currentCategory ? 'bg-lemon-500 text-black-500' : 'bg-black-400 hover:bg-black-300',
-        )}
-        href="/blog"
-      >
-        Wszystkie
-      </Link>
-      {categories.map((category) => (
+    <div className="mb-8 w-full overflow-x-scroll lg:mb-10 lg:overflow-auto">
+      <div className="flex gap-4 pb-4 lg:pb-0">
         <Link
-          href={`/kategorie/${slugify(category)}`}
           className={cn(
-            'rounded px-2 py-1 transition-colors duration-200 lg:px-3',
-            category === currentCategory
-              ? 'bg-lemon-500 text-black-500'
-              : 'bg-black-400 hover:bg-black-300',
+            'text-nowrap rounded px-2 py-1 transition-colors duration-200 lg:px-3',
+            !currentCategory ? 'bg-lemon-500 text-black-500' : 'bg-black-400 hover:bg-black-300',
           )}
-          key={category}
+          href="/blog"
         >
-          {category}
+          Wszystkie
         </Link>
-      ))}
+        {categories.map((category) => (
+          <Link
+            href={`/kategorie/${slugify(category)}`}
+            className={cn(
+              'text-nowrap rounded px-2 py-1 transition-colors duration-200 lg:px-3',
+              category === currentCategory
+                ? 'bg-lemon-500 text-black-500'
+                : 'bg-black-400 hover:bg-black-300',
+            )}
+            key={category}
+          >
+            {category}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

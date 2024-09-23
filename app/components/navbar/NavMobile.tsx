@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useClickAway, useMedia } from 'react-use';
 import { Menu, MenuItem, HamburgerVariant } from '@/app/lib/types';
 import Hamburger from './Hamburger';
+import Logo from '@/app/components/Logo';
 
 const NavMobile = ({ menu }: { menu: Menu }) => {
   const [isOpen, setOpen] = useState(false);
@@ -42,9 +43,12 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute right-0 top-0 h-screen w-full bg-black-400 pl-8 pt-4 xs:w-[clamp(400px,50%,600px)]"
+            className="absolute right-0 top-0 h-screen w-full bg-black-400 pl-10 pr-6 pt-8 xs:w-80"
           >
-            <Hamburger variant={HamburgerVariant.Close} onClick={toggleMenuOpen} />
+            <div className="flex items-center justify-between">
+              <Logo />
+              <Hamburger variant={HamburgerVariant.Close} onClick={toggleMenuOpen} />
+            </div>
             <ul className="flex flex-col gap-6 pt-12">
               {menu.map((menuItem: MenuItem, index) => (
                 <motion.li

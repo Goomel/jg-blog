@@ -10,7 +10,7 @@ const FormTextarea = ({ placeholder, name, register, error }: FormTextareaProps)
         autoComplete="off"
         className={cn(
           error ? 'border-red-600' : 'border-black-300',
-          'h-36 min-h-24 rounded border bg-black-400 px-1 py-2 text-gray-100 focus:outline-0 lg:p-3',
+          'h-36 min-h-24 rounded border bg-black-400 px-3 py-2 text-gray-100 focus:outline-0 lg:p-4',
         )}
         placeholder={placeholder}
         {...register(name)}

@@ -13,7 +13,7 @@ const FormInput = ({ type, placeholder, name, register, error }: FormFieldProps)
         {...register(name)}
         className={cn(
           error ? 'border-red-500' : 'border-black-300',
-          'rounded border bg-black-400 px-1 py-2 text-gray-100 focus:outline-0 lg:p-3',
+          'rounded border bg-black-400 px-3 py-2 text-gray-100 focus:outline-0 lg:p-4',
         )}
       />
       {error && <FormErrorMessage>{error.message}</FormErrorMessage>}
