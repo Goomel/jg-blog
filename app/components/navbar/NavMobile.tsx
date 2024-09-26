@@ -43,7 +43,7 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute right-0 top-0 h-screen w-full bg-black-400 pl-10 pr-6 pt-8 xs:w-80"
+            className="absolute right-0 top-0 h-screen w-full rounded-l-xl bg-black-400 pl-10 pr-6 pt-8 xs:w-80"
           >
             <div className="flex items-center justify-between">
               <Logo />

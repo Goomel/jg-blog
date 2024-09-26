@@ -23,8 +23,8 @@ const Hamburger = ({ variant, onClick }: HamburgerProps) => {
       )}
     >
       <div className="flex cursor-pointer flex-col items-center justify-center gap-[var(--gap-between-lines)]">
-        <div className="bg- -100 h-[var(--hamburger-line-height)] w-6 group-[&.close]:translate-y-[var(--hamburger-translate)] group-[&.close]:rotate-45"></div>
-        <div className="bg- -100 h-[var(--hamburger-line-height)] w-6 group-[&.close]:-translate-y-[var(--hamburger-translate)] group-[&.close]:-rotate-45"></div>
+        <div className="h-[var(--hamburger-line-height)] w-6 bg-gray-100 group-[&.close]:translate-y-[var(--hamburger-translate)] group-[&.close]:rotate-45"></div>
+        <div className="h-[var(--hamburger-line-height)] w-6 bg-gray-100 group-[&.close]:-translate-y-[var(--hamburger-translate)] group-[&.close]:-rotate-45"></div>
       </div>
     </button>
   );

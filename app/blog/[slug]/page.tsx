@@ -4,6 +4,7 @@ import { getPostData } from '@/app/lib/mdxUtils';
 import Image from 'next/image';
 import Code from '@/app/components/mdx/Code';
 import Heading from '@/app/components/mdx/Heading';
+import Protip from '@/app/components/blog/Protip';
 
 interface Params {
   params: {
@@ -55,6 +56,7 @@ export default async function BlogPostPage({ params }: Params) {
     h4: (props: DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => {
       return <Heading headingLevel={4}>{props.children}</Heading>;
     },
+    Protip,
   };
 
   if (!post) {
@@ -81,7 +83,7 @@ export default async function BlogPostPage({ params }: Params) {
             <Image className="object-cover" src={thumbnail} fill alt="" />
           </div>
         </div>
-        <article className="mx-auto max-w-4xl">
+        <article className="mx-auto max-w-4xl space-y-3 lg:space-y-6 [&>p]:my-3 [&>p]:lg:my-5">
           <MDXRemote source={content} components={customMdxComponents} />
         </article>
       </div>
