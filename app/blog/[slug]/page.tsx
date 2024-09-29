@@ -1,10 +1,14 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { getPostData } from '@/app/lib/mdxUtils';
+import { getPostData, slugify } from '@/app/lib/mdxUtils';
 import Image from 'next/image';
 import Code from '@/app/components/mdx/Code';
 import Heading from '@/app/components/mdx/Heading';
 import Protip from '@/app/components/blog/Protip';
+import { remark } from 'remark';
+import html from 'remark-html';
+import TableOfContent from '@/app/components/TableOfContent';
+import SocialIcons from '@/app/components/buttons/SocialIcons';
 
 interface Params {
   params: {
@@ -28,13 +32,35 @@ export default async function BlogPostPage({ params }: Params) {
   const post = getPostData(params.slug);
   const { title, publishedAt, excerpt, category, thumbnail, content } = post;
 
-  function calculateReadingTime(text: string) {
+  const processedContent = await remark().use(html).process(content);
+  const contentHtml = processedContent.toString();
+
+  const getHeadings = (htmlString: string): { text: string; link: string }[] | undefined => {
+    const regex = /<h2>(.*?)<\/h2>/g;
+    const matches = htmlString.match(regex);
+
+    if (matches) {
+      return matches.map((heading) => {
+        const headingText = heading.replace('<h2>', '').replace('</h2>', '');
+        const headingLink = slugify(headingText);
+
+        return {
+          text: headingText,
+          link: headingLink,
+        };
+      });
+    }
+  };
+
+  const headings = getHeadings(contentHtml);
+
+  const calculateReadingTime = (text: string) => {
     const wordsPerMinute = 200;
     const words = text.trim().split(/\s+/).length;
     const readingTimeMinutes = Math.ceil(words / wordsPerMinute);
 
     return readingTimeMinutes;
-  }
+  };
 
   const readingTime = calculateReadingTime(content);
   const readingTimeMinutesMessage =
@@ -64,28 +90,35 @@ export default async function BlogPostPage({ params }: Params) {
   }
 
   return (
-    <div className="container">
-      <div className="mx-auto max-w-screen-xl">
-        <div className="text-center">
-          <div className="my-8 space-y-2 sm:text-center lg:my-14 lg:space-y-4">
+    <div className="container pt-8 lg:pt-14">
+      <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between lg:mb-8">
+        <div>
+          <div className="mb-4 space-y-2 lg:mb-6 lg:space-y-4">
             <p className="text-[15px] text-lemon-500 lg:text-base">{category}</p>
             <h2 className="text-4xl font-medium sm:text-5xl 2xl:text-6xl">{title}</h2>
           </div>
+          <div className="mb-4 flex items-center text-gray-300 md:mb-0">
+            <p className="border-r border-gray-300 pr-6">Opubikowano: {publishedAt}</p>
+            <p className="pl-6">
+              Czas czytania: {readingTime} {readingTimeMinutesMessage}
+            </p>
+          </div>
+        </div>
+        <SocialIcons />
+      </div>
 
-          {/* <p>
-            {category} - {publishedAt}
-          </p>
-          <p>
-            {readingTime} {readingTimeMinutesMessage}
-          </p> */}
-
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr,300px] lg:gap-10">
+        <div>
           <div className="relative mx-auto mb-8 aspect-video w-full max-w-4xl lg:mb-14">
             <Image className="object-cover" src={thumbnail} fill alt="" />
           </div>
+          <article className="max-w-4xl flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
+            <MDXRemote source={content} components={customMdxComponents} />
+          </article>
         </div>
-        <article className="mx-auto max-w-4xl space-y-3 lg:space-y-6 [&>p]:my-3 [&>p]:lg:my-5">
-          <MDXRemote source={content} components={customMdxComponents} />
-        </article>
+        <div className="space-y-3 lg:gap-10 lg:space-y-6 [&>p]:my-3 [&>p]:lg:my-5">
+          {headings ? <TableOfContent headings={headings} /> : null}
+        </div>
       </div>
     </div>
   );

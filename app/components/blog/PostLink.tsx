@@ -17,10 +17,10 @@ const PostItem = ({
       <div className="relative flex flex-col gap-4 rounded-b-md border border-black-300 border-opacity-0 px-2 py-3 transition duration-200 group-hover:border-opacity-100 group-hover:bg-black-400 lg:px-3 lg:py-5">
         <div className="flex flex-wrap items-center gap-3 lg:gap-4">
           <CategoryChip categoryName={category} />
-          <span className="text-nowrap">{publishedAt}</span>
+          <span className="text-nowrap text-gray-300">{publishedAt}</span>
         </div>
         <p className="font-heading text-xl font-medium sm:text-2xl lg:text-3xl">{title}</p>
-        <p>{excerpt}</p>
+        <p className="text-gray-300">{excerpt}</p>
       </div>
     </Link>
   );

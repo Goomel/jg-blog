@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { slugify } from '@/app/lib/mdxUtils';
 
 type HeadingProps = {
   headingLevel: 1 | 2 | 3 | 4;
@@ -17,7 +18,12 @@ const Heading = ({ headingLevel, children }: HeadingProps) => {
   };
 
   return (
-    <Tag className={cn(headingSizes[headingLevel], 'font-heading font-medium')}>{children}</Tag>
+    <Tag
+      className={cn(headingSizes[headingLevel], 'font-heading font-medium')}
+      {...(children && headingLevel === 2 && { id: slugify(children.toString()) })}
+    >
+      {children}
+    </Tag>
   );
 };
 
