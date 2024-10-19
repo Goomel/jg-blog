@@ -43,7 +43,7 @@ export default function Home() {
         <div className="mb-8 space-y-2 sm:text-center lg:mb-14 lg:space-y-4">
           <p className="text-[15px] text-lemon-500 lg:text-base">Masz pytania?</p>
           <h2 className="mb-8 text-3xl font-medium sm:mb-10 sm:text-4xl lg:mb-14 2xl:text-5xl">
-            Napisz do mnie!
+            Wyślij wiadomość
           </h2>
         </div>
         <ContactForm />

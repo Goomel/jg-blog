@@ -12,7 +12,7 @@ const Heading = ({ headingLevel, children }: HeadingProps) => {
 
   const headingSizes = {
     1: 'text-3xl sm:text-4xl 2xl:text-5xl my-4 lg:my-8',
-    2: 'text-2xl sm:text-3xl 2xl:text-4xl my-3 lg:my-6',
+    2: 'text-2xl sm:text-3xl 2xl:text-4xl my-3 lg:my-6 scroll-mt-6',
     3: 'text-xl sm:text-2xl 2xl:text-3xl my-2 lg:my-4',
     4: 'text-lg sm:text-xl 2xl:text-2xl my-2 lg:my-4',
   };

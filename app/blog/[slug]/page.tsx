@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: Params) {
         <div>
           <div className="mb-4 space-y-2 lg:mb-6 lg:space-y-4">
             <p className="text-[15px] text-lemon-500 lg:text-base">{category}</p>
-            <h2 className="text-4xl font-medium sm:text-5xl 2xl:text-6xl">{title}</h2>
+            <h1 className="text-4xl font-medium sm:text-5xl 2xl:text-6xl">{title}</h1>
           </div>
           <div className="mb-4 flex items-center text-gray-300 md:mb-0">
             <p className="border-r border-gray-300 pr-6">Opubikowano: {publishedAt}</p>
@@ -108,14 +108,14 @@ export default async function BlogPostPage({ params }: Params) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr,300px] lg:gap-10">
-        <div>
+        <article>
           <div className="relative mx-auto mb-8 aspect-video w-full max-w-4xl lg:mb-14">
             <Image className="object-cover" src={thumbnail} fill alt="" />
           </div>
-          <article className="max-w-4xl flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
+          <div className="max-w-4xl flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
             <MDXRemote source={content} components={customMdxComponents} />
-          </article>
-        </div>
+          </div>
+        </article>
         <div className="space-y-3 lg:gap-10 lg:space-y-6 [&>p]:my-3 [&>p]:lg:my-5">
           {headings ? <TableOfContent headings={headings} /> : null}
         </div>
