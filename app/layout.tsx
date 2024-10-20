@@ -26,7 +26,9 @@ export default function RootLayout({
     <html lang="en" className={cn(archivo.variable, inter.variable)}>
       <body>
         <Navbar />
-        <div className="container">{children}</div>
+        <div className="container">
+          <div className="border-t border-gray-400 pt-8 lg:pt-14">{children}</div>
+        </div>
         <Footer />
       </body>
     </html>

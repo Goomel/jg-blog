@@ -1,3 +1,3 @@
-export default function BlogPage() {
-  return <div className="container"></div>;
+export default function AboutPage() {
+  return <div className="lg:px-6"></div>;
 }

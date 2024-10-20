@@ -90,16 +90,16 @@ export default async function BlogPostPage({ params }: Params) {
   }
 
   return (
-    <div className="container pt-8 lg:pt-14">
+    <div className="lg:px-6">
       <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between lg:mb-8">
         <div>
           <div className="mb-4 space-y-2 lg:mb-6 lg:space-y-4">
             <p className="text-[15px] text-lemon-500 lg:text-base">{category}</p>
-            <Heading headingLevel={1}>{title}</Heading>
+            <h1 className="font-heading text-3xl font-medium sm:text-4xl 2xl:text-5xl">{title}</h1>
           </div>
-          <div className="mb-4 flex items-center text-gray-300 md:mb-0">
-            <p className="border-r border-gray-300 pr-6">Opubikowano: {publishedAt}</p>
-            <p className="pl-6">
+          <div className="mb-4 flex flex-col text-gray-300 sm:flex-row sm:items-center md:mb-0">
+            <p className="border-gray-300 sm:border-r sm:pr-6">Opubikowano: {publishedAt}</p>
+            <p className="sm:pl-6">
               Czas czytania: {readingTime} {readingTimeMinutesMessage}
             </p>
           </div>
@@ -109,10 +109,10 @@ export default async function BlogPostPage({ params }: Params) {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr,300px] lg:gap-10">
         <article>
-          <div className="relative mx-auto mb-8 aspect-video w-full max-w-4xl lg:mb-14">
+          <div className="relative mx-auto mb-8 aspect-video w-full lg:mb-14">
             <Image className="object-cover" src={thumbnail} fill alt="" />
           </div>
-          <div className="max-w-4xl flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
+          <div className="flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
             <MDXRemote source={content} components={customMdxComponents} />
           </div>
         </article>

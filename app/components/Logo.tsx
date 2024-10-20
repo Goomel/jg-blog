@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="font-heading text-2xl font-extrabold text-gray-100 sm:text-3xl lg:text-4xl"
+      className="font-heading text-2xl font-extrabold text-gray-100 sm:text-3xl lg:text-[32px]"
       aria-label="jgdev.pl home page"
     >
       <span>jgdev</span>

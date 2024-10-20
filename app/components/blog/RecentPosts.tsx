@@ -20,7 +20,7 @@ const RecentPosts = () => {
 
     return (
       <div>
-        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:mb-16 lg:gap-16">
+        <div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:mb-16 lg:gap-16">
           {recentPosts.slice(0, 2).map((post: Post) => (
             <PostLink key={post.slug} post={post} />
           ))}

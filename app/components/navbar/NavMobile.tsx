@@ -62,14 +62,15 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
                     type: 'spring',
                     stiffness: 200,
                     damping: 25,
-                    delay: 0.15 + index / 10,
+                    delay: 0.1 + index / 10,
                   }}
                   key={menuItem.title}
                   className="list-none"
+                  onClick={toggleMenuOpen}
                 >
                   <Link
                     href={menuItem.href}
-                    className="text-base font-medium text-gray-100 xs:text-lg"
+                    className="text-base font-medium text-gray-100 sm:text-lg"
                   >
                     {menuItem.title}
                   </Link>
