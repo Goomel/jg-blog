@@ -10,6 +10,7 @@ import Hamburger from './Hamburger';
 import Logo from '@/app/components/Logo';
 
 const NavMobile = ({ menu }: { menu: Menu }) => {
+  const menuWithContact: Menu = [...menu, { title: 'Kontakt', href: '/#kontakt' }];
   const [isOpen, setOpen] = useState(false);
   const navMobileRef = useRef(null);
   const toggleMenuOpen = () => {
@@ -17,7 +18,9 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
   };
 
   // Close the menu when user click outside the component
-  useClickAway(navMobileRef, () => setOpen(false));
+  useClickAway(navMobileRef, () => {
+    setOpen(false);
+  });
 
   // Close the menu when user enlarge the screen to > 1024px
   const isWide = useMedia('(min-width: 1024px)', false);
@@ -44,13 +47,14 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
             className="absolute right-0 top-0 h-screen w-full rounded-l-xl bg-black-400 pl-10 pr-6 pt-8 xs:w-80"
+            ref={navMobileRef}
           >
             <div className="flex items-center justify-between">
               <Logo />
               <Hamburger variant={HamburgerVariant.Close} onClick={toggleMenuOpen} />
             </div>
             <ul className="flex flex-col gap-6 pt-12">
-              {menu.map((menuItem: MenuItem, index) => (
+              {menuWithContact.map((menuItem: MenuItem, index) => (
                 <motion.li
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}

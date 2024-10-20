@@ -5,6 +5,10 @@ import Logo from '@/app/components/Logo';
 
 const menu: Menu = [
   {
+    title: 'Home',
+    href: '/',
+  },
+  {
     title: 'Artykuły',
     href: '/blog',
   },

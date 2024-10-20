@@ -21,8 +21,10 @@ const Code = (props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreEl
   }, []);
 
   return (
-    <div className="my-3 overflow-hidden rounded-md lg:my-5 lg:rounded-lg">
-      <pre>{isValidElement(props.children) ? <code {...props.children.props}></code> : null}</pre>
+    <div className="my-3 max-w-full overflow-hidden rounded-md lg:my-5 lg:rounded-lg">
+      <pre className="[&>code]:lg:text-wrap">
+        {isValidElement(props.children) ? <code {...props.children.props}></code> : null}
+      </pre>
     </div>
   );
 };

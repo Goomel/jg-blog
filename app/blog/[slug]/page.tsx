@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: Params) {
         <div>
           <div className="mb-4 space-y-2 lg:mb-6 lg:space-y-4">
             <p className="text-[15px] text-lemon-500 lg:text-base">{category}</p>
-            <h1 className="text-4xl font-medium sm:text-5xl 2xl:text-6xl">{title}</h1>
+            <Heading headingLevel={1}>{title}</Heading>
           </div>
           <div className="mb-4 flex items-center text-gray-300 md:mb-0">
             <p className="border-r border-gray-300 pr-6">Opubikowano: {publishedAt}</p>

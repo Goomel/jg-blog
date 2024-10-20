@@ -27,7 +27,7 @@ const NavDesktop = ({ menu }: { menu: Menu }) => {
         ))}
       </ul>
 
-      <ButtonPrimary as="link" href="#kontakt">
+      <ButtonPrimary as="link" href="/#kontakt">
         Kontakt
       </ButtonPrimary>
     </div>

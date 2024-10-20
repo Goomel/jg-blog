@@ -12,20 +12,21 @@ const TableOfContent = ({ headings }: { headings: { text: string; link: string }
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveHeadingLink(entry.target.id);
-          } else {
-            // turn off active link if scroll is above every heading
-            const windowPositionY = window.scrollY;
-            const firstHeadingPositionY =
-              entry.target.getBoundingClientRect().top + windowPositionY;
-
-            if (windowPositionY < firstHeadingPositionY) {
-              setActiveHeadingLink(null);
-            }
           }
+          // else {
+          // turn off active link if scroll is above every heading
+          //   const windowPositionY = window.scrollY;
+          //   const firstHeadingPositionY =
+          //     entry.target.getBoundingClientRect().top + windowPositionY;
+
+          //   if (windowPositionY < firstHeadingPositionY) {
+          //     setActiveHeadingLink(null);
+          //   }
+          // }
         });
       },
       {
-        rootMargin: '0px 0px -80% 0px',
+        rootMargin: '0% 0px -80% 0px',
       },
     );
 
