@@ -1,7 +1,7 @@
 import React from 'react';
 import PostLink from './PostLink';
 import { Post } from '../../lib/types';
-import { sortPostsByDate } from '@/app/lib/mdxUtils';
+import { sortPostsByDate } from '@/app/lib/postUtils';
 
 const PostsGrid = ({ posts }: { posts: Post[] }) => {
   const sortedPosts = sortPostsByDate(posts);

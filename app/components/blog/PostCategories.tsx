@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import cn from 'classnames';
-import { getPostsCategories, slugify } from '@/app/lib/mdxUtils';
+import { slugify } from '@/app/lib/mdxUtils';
+import { getPostsCategories } from '@/app/lib/postUtils';
 
 const PostCategories = ({ currentCategory }: { currentCategory?: string }) => {
   const categories = getPostsCategories();
 
   return (
-    <div className="mb-8 w-full overflow-x-scroll lg:mb-10 lg:overflow-auto">
+    <div className="mb-8 w-full overflow-auto lg:mb-10">
       <div className="flex gap-4 pb-4 lg:pb-0">
         <Link
           className={cn(

@@ -8,6 +8,7 @@ import { useClickAway, useMedia } from 'react-use';
 import { Menu, MenuItem, HamburgerVariant } from '@/app/lib/types';
 import Hamburger from './Hamburger';
 import Logo from '@/app/components/Logo';
+import SocialIcons from '../buttons/SocialIcons';
 
 const NavMobile = ({ menu }: { menu: Menu }) => {
   const menuWithContact: Menu = [...menu, { title: 'Kontakt', href: '/#kontakt' }];
@@ -46,14 +47,14 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute right-0 top-0 h-screen w-full rounded-l-xl bg-black-400 pl-10 pr-6 pt-8 xs:w-80"
+            className="absolute right-0 top-0 flex h-[100svh] w-full flex-col rounded-l-xl bg-black-400 py-8 pl-10 pr-6 xs:w-80"
             ref={navMobileRef}
           >
             <div className="flex items-center justify-between">
               <Logo />
               <Hamburger variant={HamburgerVariant.Close} onClick={toggleMenuOpen} />
             </div>
-            <ul className="flex flex-col gap-6 pt-12">
+            <ul className="mt-12 flex flex-col gap-6">
               {menuWithContact.map((menuItem: MenuItem, index) => (
                 <motion.li
                   initial={{ scale: 0, opacity: 0 }}
@@ -77,6 +78,9 @@ const NavMobile = ({ menu }: { menu: Menu }) => {
                 </motion.li>
               ))}
             </ul>
+            <div className="mt-auto">
+              <SocialIcons />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

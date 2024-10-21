@@ -2,7 +2,7 @@ import React from 'react';
 import PostLink from './PostLink';
 import { Post } from '../../lib/types';
 import ButtonPrimary from '../buttons/ButtonPrimary';
-import { getLatestBlogPosts } from '@/app/lib/mdxUtils';
+import { getLatestBlogPosts } from '@/app/lib/postUtils';
 
 const RecentPosts = () => {
   const recentPosts = getLatestBlogPosts();

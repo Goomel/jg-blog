@@ -1,6 +1,6 @@
 import PostsGrid from '@/app/components/blog/PostsGrid';
 import PostCategories from '@/app/components/blog/PostCategories';
-import { getAllBlogPosts } from '@/app/lib/mdxUtils';
+import { getAllBlogPosts } from '@/app/lib/postUtils';
 import '@/styles/mdx-code-theme.css';
 
 export default function BlogPage() {
