@@ -1,6 +1,6 @@
 import PostsGrid from '@/app/components/blog/PostsGrid';
 import PostCategories from '@/app/components/blog/PostCategories';
-import { getPostsByCategorySlug } from '@/app/lib/mdxUtils';
+import { getPostsByCategorySlug } from '@/app/lib/postUtils';
 
 interface Params {
   params: {

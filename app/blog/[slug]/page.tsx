@@ -1,6 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { getPostData, slugify } from '@/app/lib/mdxUtils';
+import { formatDate } from '@/app/lib/postUtils';
 import Image from 'next/image';
 import Code from '@/app/components/mdx/Code';
 import Heading from '@/app/components/mdx/Heading';
@@ -65,6 +66,7 @@ export default async function BlogPostPage({ params }: Params) {
   const readingTime = calculateReadingTime(content);
   const readingTimeMinutesMessage =
     readingTime <= 1 ? 'minuta' : readingTime > 4 ? 'minut' : 'minuty';
+  const formattedPublishedAt = formatDate(publishedAt);
 
   const customMdxComponents = {
     pre: (props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) => {
@@ -98,7 +100,10 @@ export default async function BlogPostPage({ params }: Params) {
             <h1 className="font-heading text-3xl font-medium sm:text-4xl 2xl:text-5xl">{title}</h1>
           </div>
           <div className="mb-4 flex flex-col text-gray-300 sm:flex-row sm:items-center md:mb-0">
-            <p className="border-gray-300 sm:border-r sm:pr-6">Opubikowano: {publishedAt}</p>
+            <p className="border-gray-300 sm:border-r sm:pr-6">
+              Opubikowano: {formattedPublishedAt}
+            </p>
+
             <p className="sm:pl-6">
               Czas czytania: {readingTime} {readingTimeMinutesMessage}
             </p>
