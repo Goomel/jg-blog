@@ -16,8 +16,22 @@ const ContactForm = () => {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const handleSendEmail = (data: any) => {
-    console.log(data);
+  const handleSendEmail = async (data: FormData) => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error sending email');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
