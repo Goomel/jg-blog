@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Params) {
             </p>
           </div>
         </div>
-        <SocialIcons />
+        <SocialIcons showCopyUrlIcon={true} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr,300px] lg:gap-10">

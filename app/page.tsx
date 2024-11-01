@@ -34,7 +34,7 @@ export default function Home() {
           <RecentPosts />
         </section>
 
-        <section id="kontakt" className="relative pt-14 lg:pt-16">
+        <section id="kontakt" className="relative scroll-mt-[var(--header-height)] pt-14 lg:pt-16">
           <div className="absolute left-8 top-5 z-[-1] hidden lg:block">
             <PlussesPattern />
           </div>
@@ -42,8 +42,10 @@ export default function Home() {
             <PlussesPattern />
           </div>
           <div className="mb-6 space-y-2 sm:mb-8 sm:text-center lg:mb-14 lg:space-y-4">
-            <p className="text-[15px] text-lemon-500 lg:text-base">Masz pytania?</p>
-            <h2 className="text-3xl font-medium sm:text-4xl 2xl:text-5xl">Wyślij wiadomość</h2>
+            <p className="text-[15px] text-lemon-500 lg:text-base">
+              Masz pytanie lub chcesz się skontaktować?
+            </p>
+            <h2 className="text-3xl font-medium sm:text-4xl 2xl:text-5xl">Napisz do mnie!</h2>
           </div>
           <ContactForm />
         </section>

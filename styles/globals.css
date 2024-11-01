@@ -9,12 +9,19 @@
 }
 
 :root {
+  --header-height: 64px;
   /* Hamburger values */
   --hamburger-line-height: 2px;
   --gap-between-lines: 6px;
   --hamburger-translate: calc(
     calc((var(--gap-between-lines) / 2) + (var(--hamburger-line-height) / 2))
   );
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --header-height: 80px;
+  }
 }
 
 html {

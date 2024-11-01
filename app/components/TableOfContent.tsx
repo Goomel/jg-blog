@@ -13,16 +13,6 @@ const TableOfContent = ({ headings }: { headings: { text: string; link: string }
           if (entry.isIntersecting) {
             setActiveHeadingLink(entry.target.id);
           }
-          // else {
-          // turn off active link if scroll is above every heading
-          //   const windowPositionY = window.scrollY;
-          //   const firstHeadingPositionY =
-          //     entry.target.getBoundingClientRect().top + windowPositionY;
-
-          //   if (windowPositionY < firstHeadingPositionY) {
-          //     setActiveHeadingLink(null);
-          //   }
-          // }
         });
       },
       {
