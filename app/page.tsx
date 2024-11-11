@@ -9,15 +9,12 @@ export default function Home() {
         <div className="border-b border-gray-400 pb-10 lg:pb-14">
           <div className="space-y-6 lg:w-4/5 lg:space-y-8 xl:w-3/4">
             <p className="font-heading text-3xl font-medium sm:text-4xl 2xl:text-5xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam scelerisque imperdiet
-              arcu ut convallis.
+              Hej, tu Kuba! 👋
             </p>
             <p className="text-sm lg:text-base">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel natus adipisci cumque
-              dolore doloribus mollitia sapiente placeat, blanditiis inventore fugiat tempora
-              provident? Voluptas itaque perferendis mollitia unde laboriosam quis eum voluptates
-              autem aliquid quas, maxime totam possimus? Cupiditate cumque, totam nihil sapiente
-              similique itaque incidunt tenetur harum at eligendi culpa?
+              Witaj na jgdev.pl – blogu o frontend developmencie. Stworzyłem to miejsce, żeby
+              dzielić się wiedzą, ale też samemu uczyć się nowych tematów. Mam nadzieję, że
+              znajdziesz tutaj coś dla siebie i zainspirujesz się do tworzenia swoich projektów!
             </p>
           </div>
           <div className="absolute -bottom-5 right-8 z-[-1] hidden lg:block">

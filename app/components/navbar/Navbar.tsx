@@ -20,12 +20,14 @@ const menu: Menu = [
 
 const Navbar = () => {
   return (
-    <nav className="container sticky top-0 z-10 h-[var(--header-height)] bg-black-500">
-      <div className="py-4 lg:py-4">
-        <div className="flex items-center justify-between lg:justify-normal lg:gap-10">
-          <Logo />
-          <NavDesktop menu={menu} />
-          <NavMobile menu={menu} />
+    <nav className="sticky top-0 z-10 h-[var(--header-height)] bg-black-500">
+      <div className="container">
+        <div className="py-4">
+          <div className="flex items-center justify-between lg:justify-normal lg:gap-10">
+            <Logo />
+            <NavDesktop menu={menu} />
+            <NavMobile menu={menu} />
+          </div>
         </div>
       </div>
     </nav>

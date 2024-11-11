@@ -33,5 +33,5 @@ body {
 }
 
 .overlay {
-  @apply absolute left-0 top-0 h-screen w-screen bg-black-500/30;
+  @apply absolute left-0 top-0 h-screen w-full bg-black-500/30;
 }

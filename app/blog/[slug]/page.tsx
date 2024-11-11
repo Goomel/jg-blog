@@ -114,9 +114,9 @@ export default async function BlogPostPage({ params }: Params) {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr,300px] lg:gap-10">
         <article>
-          <div className="relative mx-auto mb-8 aspect-video w-full lg:mb-14">
+          {/* <div className="relative mx-auto mb-8 aspect-[3/2] w-full lg:mb-14">
             <Image className="object-cover" src={thumbnail} fill alt="" />
-          </div>
+          </div> */}
           <div className="flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
             <MDXRemote source={content} components={customMdxComponents} />
           </div>

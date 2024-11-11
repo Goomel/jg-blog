@@ -30,6 +30,8 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail({
       from: `${name} <${email}>`, // sender address
       to: 'grzymislawski.jakub@gmail.com', // list of receivers
+      // to: process.env.MAIL_TO, // list of receivers
+
       subject: 'jgdev.pl - Nowa wiadomość',
       text: message,
       html: `<p>${formattedMessage}</p>`,

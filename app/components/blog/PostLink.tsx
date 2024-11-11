@@ -13,11 +13,14 @@ const PostItem = ({
   const formattedPublishedAt = formatDate(publishedAt);
 
   return (
-    <Link href={`/blog/${slug}`} className="group w-full">
-      <div className="relative aspect-[3/2] w-full overflow-hidden rounded-t-md">
+    <Link
+      href={`/blog/${slug}`}
+      className="group block w-full overflow-hidden rounded-md border border-black-300 border-opacity-0 transition duration-200 hover:border-opacity-100"
+    >
+      <div className="relative aspect-[3/2] w-full">
         <Image src={thumbnail} alt="" fill className="object-cover" loading="lazy" />
       </div>
-      <div className="relative rounded-b-md border border-black-300 border-opacity-0 px-2 py-3 transition duration-200 group-hover:border-opacity-100 group-hover:bg-black-400 lg:px-3 lg:py-5">
+      <div className="relative px-2 py-3 lg:px-3 lg:py-5">
         <div className="mb-3 flex flex-wrap items-center gap-3 lg:mb-4 lg:gap-4">
           <CategoryChip categoryName={category} />
           <span className="text-nowrap text-gray-300">{formattedPublishedAt}</span>
