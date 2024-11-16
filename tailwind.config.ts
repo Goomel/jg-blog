@@ -17,12 +17,10 @@ const config: Config = {
     },
     container: {
       center: true,
-      // screens: {
-      //   lg: '1360px',
-      // },
       padding: {
         DEFAULT: '1.5rem',
         lg: '2.5rem',
+        '2xl': '5rem',
       },
     },
     colors: {

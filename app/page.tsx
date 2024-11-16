@@ -11,7 +11,7 @@ export default function Home() {
             <p className="font-heading text-3xl font-medium sm:text-4xl 2xl:text-5xl">
               Hej, tu Kuba! 👋
             </p>
-            <p className="text-sm lg:text-base">
+            <p className="text-base lg:text-lg">
               Witaj na jgdev.pl – blogu o frontend developmencie. Stworzyłem to miejsce, żeby
               dzielić się wiedzą, ale też samemu uczyć się nowych tematów. Mam nadzieję, że
               znajdziesz tutaj coś dla siebie i zainspirujesz się do tworzenia swoich projektów!

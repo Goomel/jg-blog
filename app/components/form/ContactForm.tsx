@@ -6,11 +6,13 @@ import { FormData, contactFormSchema } from '@/app/lib/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormTextarea from './FormTextarea';
 import ButtonPrimary from '../buttons/ButtonPrimary';
+import { sendEmail } from '@/app/lib/resend';
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(contactFormSchema),
@@ -18,17 +20,8 @@ const ContactForm = () => {
 
   const handleSendEmail = async (data: FormData) => {
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error sending email');
-      }
+      await sendEmail(data.name, data.email, data.message);
+      reset();
     } catch (error) {
       console.error(error);
     }
