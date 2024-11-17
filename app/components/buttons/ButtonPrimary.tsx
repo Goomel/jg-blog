@@ -24,7 +24,7 @@ const ButtonPrimary = ({ additionalClassNames, hasArrow, ...props }: ButtonProps
     const { as, ...rest } = props;
     return (
       <Link className={cn(baseClassnames, additionalClassNames)} {...rest}>
-        <span>{rest.children}</span>
+        {rest.children}
         {hasArrow && <ArrowRight />}
       </Link>
     );
@@ -32,7 +32,7 @@ const ButtonPrimary = ({ additionalClassNames, hasArrow, ...props }: ButtonProps
   const { as, ...rest } = props;
   return (
     <button className={cn(baseClassnames, additionalClassNames)} {...rest}>
-      <span>{rest.children}</span>
+      {rest.children}
       {hasArrow && <ArrowRight />}
     </button>
   );
