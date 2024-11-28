@@ -8,6 +8,14 @@ interface Params {
   };
 }
 
+export async function generateMetadata({ params }: Params) {
+  console.log(params);
+  return {
+    title: `jgdev.pl - ${params.slug}`,
+    description: `jgdev.pl - artykuły w kategorii ${params.slug}`,
+  };
+}
+
 export default function CategoryPage({ params }: Params) {
   const currentCategorySlug = params.slug;
   const currentCategoryPosts = getPostsByCategorySlug(currentCategorySlug);

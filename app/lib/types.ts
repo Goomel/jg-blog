@@ -27,14 +27,16 @@ export type FormData = {
   name: string;
   email: string;
   message: string;
+  terms: boolean;
 };
 
-export type FormFieldNames = 'name' | 'email' | 'message';
+export type FormFieldNames = 'name' | 'email' | 'message' | 'terms';
 
 export type FormFieldProps = {
   type: string;
   placeholder?: string;
   name: FormFieldNames;
+  label?: string | React.ReactNode;
   register: UseFormRegister<FormData>;
   error: FieldError | undefined;
 };
@@ -45,4 +47,5 @@ export const contactFormSchema: ZodType<FormData> = z.object({
   name: z.string().min(3, 'Wpisz poprawne imię i nazwisko'),
   email: z.string().email('Wpisz poprawny adres email'),
   message: z.string().min(12, 'Wiadomość musi mieć conajmniej 10 znaków'),
+  terms: z.literal(true, { errorMap: () => ({ message: 'To pole jest wymagane' }) }),
 });

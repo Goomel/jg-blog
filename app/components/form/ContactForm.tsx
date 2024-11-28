@@ -59,6 +59,22 @@ const ContactForm = () => {
           placeholder="Wiadomość"
           error={errors.message}
         />
+        <FormInput
+          type="checkbox"
+          name="terms"
+          label={
+            <>
+              Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu. Dane będą
+              przetwarzane zgodnie z{' '}
+              <a href="/polityka-prywatnosci" className="underline">
+                polityką prywatności
+              </a>
+              .
+            </>
+          }
+          register={register}
+          error={errors.terms}
+        />
         <ButtonPrimary type="submit" as="button">
           {isSubmitting ? (
             <>

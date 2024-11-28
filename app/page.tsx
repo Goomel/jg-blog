@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import RecentPosts from './components/blog/RecentPosts';
 import ContactForm from './components/form/ContactForm';
 import PlussesPattern from '@/public/bg/plusses-pattern.svg';
 
+export const metadata: Metadata = {
+  title: 'jgdev.pl - Blog o programowaniu',
+  description:
+    'jgdev.pl to blog frontendowy poświęcony programowaniu i nowoczesnym technologiom. Znajdziesz tu artykuły, które w przystępny sposób omawiają różnorodne zagadnienia związane z tworzeniem nowoczesnych aplikacji internetowych.',
+};
 export default function Home() {
   return (
     <>

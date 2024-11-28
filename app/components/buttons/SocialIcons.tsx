@@ -12,7 +12,7 @@ const SocialIcons = ({ showCopyUrlIcon = false }: { showCopyUrlIcon?: boolean })
 
     const currentUrl = window.location.href;
     navigator.clipboard.writeText(currentUrl);
-    setCopySuccess('Tekst został skopiowany!');
+    setCopySuccess('Adres URL został skopiowany!');
     setTimeout(() => {
       setCopySuccess('');
     }, 2000);
