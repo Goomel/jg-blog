@@ -2,7 +2,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { getPostData, slugify } from '@/app/lib/mdxUtils';
 import { formatDate } from '@/app/lib/postUtils';
-import Image from 'next/image';
 import Code from '@/app/components/mdx/Code';
 import Heading from '@/app/components/mdx/Heading';
 import Protip from '@/app/components/blog/Protip';
@@ -36,18 +35,23 @@ export default async function BlogPostPage({ params }: Params) {
   const processedContent = await remark().use(html).process(content);
   const contentHtml = processedContent.toString();
 
-  const getHeadings = (htmlString: string): { text: string; link: string }[] | undefined => {
-    const regex = /<h2>(.*?)<\/h2>/g;
+  const getHeadings = (
+    htmlString: string,
+  ): { text: string; link: string; level: number }[] | undefined => {
+    const regex = /<(h2|h3)>(.*?)<\/\1>/g;
+
     const matches = htmlString.match(regex);
 
     if (matches) {
       return matches.map((heading) => {
-        const headingText = heading.replace('<h2>', '').replace('</h2>', '');
+        const headingText = heading.replace(/<\/?(h2|h3)>/g, '');
         const headingLink = slugify(headingText);
+        const headingLevel = heading.startsWith('<h2>') ? 2 : 3;
 
         return {
           text: headingText,
           link: headingLink,
+          level: headingLevel,
         };
       });
     }
@@ -114,10 +118,7 @@ export default async function BlogPostPage({ params }: Params) {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr,300px] lg:gap-10">
         <article>
-          {/* <div className="relative mx-auto mb-8 aspect-[3/2] w-full lg:mb-14">
-            <Image className="object-cover" src={thumbnail} fill alt="" />
-          </div> */}
-          <div className="flex-col lg:flex-row [&>ol]:text-gray-300 [&>p]:text-gray-300 [&>ul]:text-gray-300">
+          <div className="flex-col text-base leading-loose lg:flex-row lg:text-lg [&>ol]:text-gray-200 [&>p]:text-gray-200 [&>ul]:text-gray-200 [&_a]:underline [&_pre]:text-sm lg:[&_pre]:text-base">
             <MDXRemote source={content} components={customMdxComponents} />
           </div>
         </article>

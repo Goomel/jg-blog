@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 
-const TableOfContent = ({ headings }: { headings: { text: string; link: string }[] }) => {
+const TableOfContent = ({
+  headings,
+}: {
+  headings: { text: string; link: string; level: number }[];
+}) => {
   const [activeHeadingLink, setActiveHeadingLink] = useState<string | null>(null);
 
   useEffect(() => {
@@ -20,7 +24,7 @@ const TableOfContent = ({ headings }: { headings: { text: string; link: string }
       },
     );
 
-    const headingElements = document.querySelectorAll('h2');
+    const headingElements = document.querySelectorAll('h2, h3');
     if (headingElements.length) {
       headingElements.forEach((element) => {
         observer.observe(element);
@@ -39,6 +43,7 @@ const TableOfContent = ({ headings }: { headings: { text: string; link: string }
             className={cn('text-base transition-colors duration-200 hover:text-gray-100', {
               'text-gray-300': heading.link !== activeHeadingLink,
               'text-lemon-500': heading.link === activeHeadingLink,
+              'ml-3': heading.level === 3,
             })}
           >
             {heading.text}
